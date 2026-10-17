@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#8b5cf6">
+  <meta name="description" content="Consulta el clima actual y el pronóstico semanal en una experiencia llena de tonos lilas.">
+  <title>Pronóstico Profesional | Tu clima</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="background-orb orb-one"></div>
+  <div class="background-orb orb-two"></div>
+
+  <main class="app-container">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Pronóstico, inicio">
+        <span class="brand-icon">☁</span>
+        <span>Pronóstico<span class="brand-light">Profesional</span></span>
+      </a>
+      <span class="live-label">
+        <span class="live-dot"></span> Clima en tiempo real.
+      </span>
+    </header>
+
+    <section class="welcome">
+      <p class="eyebrow">TU PEQUEÑO RINCÓN DEL CLIMA</p>
+      <h1>Un día nuevo,<br><span>un cielo diferente.</span></h1>
+      <p class="subtitle">
+        Descubre qué tiene preparado el cielo para ti.
+      </p>
+    </section>
+
+    <form id="searchForm" class="search-box">
+      <span class="search-icon" aria-hidden="true">⌕</span>
+      <input
+        type="text"
+        id="cityInput"
+        placeholder="Busca una ciudad... Ej. Toluca"
+        aria-label="Nombre de la ciudad"
+        maxlength="100"
+        required
+      >
+      <button type="submit" id="searchButton">Buscar <span>↗</span></button>
+    </form>
+
+    <p id="statusMessage" class="status-message" role="status" aria-live="polite">
+      Preparando el pronóstico...
+    </p>
+
+    <section id="weatherContent" hidden>
+      <article class="weather-hero">
+        <div class="hero-top">
+          <div>
+            <span class="section-label">EL CLIMA AHORA</span>
+            <h2 id="cityName">Tu ciudad</h2>
+            <p id="currentDate" class="date-text">Hoy</p>
+          </div>
+          <span id="weatherIcon" class="main-weather-icon" aria-hidden="true">☀️</span>
+        </div>
+
+        <div class="temperature-row">
+          <div class="temperature">
+            <span id="temperature">--</span><sup>°C</sup>
+          </div>
+          <div class="weather-description">
+            <p id="weatherDescription">Consultando...</p>
+            <p class="feels-like">
+              Sensación térmica: <strong id="feelsLike">--°</strong>
+            </p>
+          </div>
+        </div>
+
+        <div class="hero-bottom">
+          <span>✦</span>
+          <p id="weatherAdvice">Un pequeño vistazo a tu día.</p>
+        </div>
+      </article>
+
+      <section class="details-section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">DETALLES</p>
+            <h2>El ambiente de hoy</h2>
+          </div>
+          <span class="heading-decoration">✧</span>
+        </div>
+
+        <div class="details-grid">
+          <article class="detail-card">
+            <div class="detail-icon humidity-icon">♧</div>
+            <p>Humedad</p>
+            <strong id="humidity">--%</strong>
+            <span>Humedad relativa</span>
+          </article>
+
+          <article class="detail-card">
+            <div class="detail-icon wind-icon">〰</div>
+            <p>Viento</p>
+            <strong id="wind">-- km/h</strong>
+            <span>Velocidad actual</span>
+          </article>
+
+          <article class="detail-card">
+            <div class="detail-icon rain-icon">☂</div>
+            <p>Prob. de lluvia</p>
+            <strong id="rain">--%</strong>
+            <span>Durante el día</span>
+          </article>
+
+          <article class="detail-card">
+            <div class="detail-icon sun-icon">☼</div>
+            <p>Temperatura máxima</p>
+            <strong id="maxTemp">--°</strong>
+            <span>Máxima prevista</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="forecast-section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">LOS PRÓXIMOS DÍAS</p>
+            <h2>Pronóstico semanal</h2>
+          </div>
+          <span class="heading-decoration">☾</span>
+        </div>
+
+        <div id="forecastGrid" class="forecast-grid"></div>
+      </section>
+
+      <p id="updatedAt" class="updated-text"></p>
+    </section>
+
+    <footer class="footer">
+      <p>Hecho con <span>♥</span> y un poquito de magia de Jocelin Vidal Cortina</p>
+      <p>
+        Datos de clima: <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a>
+        · Lugares: <a href="https://www.openstreetmap.org/" target="_blank" rel="noopener">OpenStreetMap</a>
+      </p>
+    </footer>
+  </main>
+</body>
+</html>
+
